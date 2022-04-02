@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Model;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
 class SalaryForm extends Model
 {
-    //
+    protected $fillable = ['name'];
+    public $timestamps = false;
 }

@@ -22,54 +22,53 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm fixed-top">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/admin') }}">
-                    {{ env('APP_NAME') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm fixed-top px-5">
+            <a class="navbar-brand" href="{{ url('/admin') }}">
+                {{ config('app.name', 'Laravel') }}
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Left Side Of Navbar -->
+                <ul class="navbar-nav mr-auto">
 
-                    </ul>
+                </ul>
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('admin.login') }}">
-                                    {{ __('Login') }}
-                                </a>
-                            </li>
-                        @else
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
-                                                document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
+                <!-- Right Side Of Navbar -->
+                <ul class="navbar-nav ml-auto">
+                    <!-- Authentication Links -->
+                    @guest
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin.login') }}">
+                                {{ __('Login') }}
+                            </a>
+                        </li>
+                    @else
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
 
-                                <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
-                                    @csrf
-                                </form>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
+                            <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </li>
+                    @endguest
+                </ul>
             </div>
+
         </nav>
 
-        <main>
+        <main class="container-fluid">
             <div class="row justify-content-center">
                 <div class="col-md-2 bg-dark header-space vh-100 pl-4">
                     <ul class="nav nav-pills nav-sidebar flex-column">
                         <li class="nav-item">
-                            <a href="" class="p-2 btn btn-dark d-block">
+                            <a href="{{ route('admin.company') }}" class="p-2 btn btn-dark d-block">
                                 企業管理
                             </a>
                         </li>
@@ -79,17 +78,17 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="p-2 btn btn-dark d-block">
+                            <a href="{{ route('admin.tag') }}" class="p-2 btn btn-dark d-block">
                                 タグ管理
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="p-2 btn btn-dark d-block">
+                            <a href="{{ route('admin.category') }}" class="p-2 btn btn-dark d-block">
                                 職種管理
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="p-2 btn btn-dark d-block">
+                            <a href="{{ route('admin.salaryForm') }}" class="p-2 btn btn-dark d-block">
                                 雇用形態管理
                             </a>
                         </li>
@@ -105,7 +104,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-md-10 header-space">
+                <div class="col-md-10 header-space px-5">
                     @yield('content')
                 </div>
             </div>

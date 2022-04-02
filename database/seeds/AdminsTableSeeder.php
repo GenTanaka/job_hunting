@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
+use Symfony\Component\VarDumper\Cloner\Data;
 
 class AdminsTableSeeder extends Seeder
 {
